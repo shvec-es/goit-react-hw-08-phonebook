@@ -1,0 +1,17 @@
+.link {
+  padding: 3px;
+  /* background-color: rgb(96, 89, 110);
+  color: rgb(250, 244, 243);
+  border: 2px solid rgb(96, 89, 110); */
+}
+
+.link:not(:last-child) {
+  margin-right: 25px;
+}
+
+/* .link:hover,
+.link:focus {
+  color: rgb(96, 89, 110);
+  background-color: rgb(250, 244, 243);
+  border-color: rgb(250, 244, 243);
+} */
