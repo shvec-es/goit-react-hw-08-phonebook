@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/auth-operations';
+import { TextField, Typography, Button, Box } from '@mui/material';
 
 function RegisterPage() {
   const [name, setName] = useState('');
@@ -34,44 +35,61 @@ function RegisterPage() {
 
   return (
     <>
-      <h2>Форма регистрации</h2>
+      <Typography
+        variant="h3"
+        color="secondary"
+        sx={{ mb: '15px', textAlign: 'center' }}
+      >
+        Registration form
+      </Typography>
 
-      <form onSubmit={handleSubmit}>
-        <label>
-          {' '}
-          Введите имя
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-          ></input>
-        </label>
-        <br />
-        <label>
-          {' '}
-          Введите email
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          ></input>
-        </label>
-        <br />
-        <label>
-          {' '}
-          Введите пароль
-          <input
-            type="text"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          ></input>
-        </label>
-        <br />
-        <button type="submit">Зарегистрироваться</button>
-      </form>
+      <Box
+        component="form"
+        sx={{ width: '350px', m: '0 auto' }}
+        onSubmit={handleSubmit}
+      >
+        <TextField
+          required
+          label="Enter your name"
+          size="small"
+          margin="dense"
+          fullWidth
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChange}
+        />
+        <TextField
+          required
+          label="Enter your email"
+          size="small"
+          margin="dense"
+          fullWidth
+          type="text"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+        <TextField
+          required
+          label="Create a password"
+          size="small"
+          margin="dense"
+          fullWidth
+          type="password"
+          name="password"
+          value={password}
+          onChange={handleChange}
+        />
+        <Button
+          variant="contained"
+          color="secondary"
+          sx={{ width: '150px', display: 'block', m: '15px auto' }}
+          type="submit"
+        >
+          Register
+        </Button>
+      </Box>
     </>
   );
 }

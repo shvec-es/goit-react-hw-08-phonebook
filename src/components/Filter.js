@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { TextFilter, InputFilter } from 'styles';
-import { changeFilter } from '../../redux/contacts/contacts-actions';
+import { changeFilter } from 'redux/contacts/contacts-actions';
 import { getFilter } from 'redux/contacts/contacts-selectors';
+import { Box, TextField, Typography } from '@mui/material';
 
 const Filter = () => {
   const filter = useSelector(getFilter);
@@ -12,16 +12,21 @@ const Filter = () => {
   const onChangeFilter = e => dispatch(changeFilter(e.target.value));
 
   return (
-    <>
-      <TextFilter>Find contacts by name</TextFilter>
-      <InputFilter
+    <Box component="div" sx={{ width: '350px', m: '0 auto 15px' }}>
+      <Typography variant="h6" color="secondary" sx={{ textAlign: 'center' }}>
+        Find contacts by name
+      </Typography>
+      <TextField
+        size="small"
+        margin="dense"
+        fullWidth
         type="text"
         name="filter"
         value={filter}
         onChange={onChangeFilter}
         autoComplete="off"
       />
-    </>
+    </Box>
   );
 };
 
